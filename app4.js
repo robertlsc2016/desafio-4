@@ -1,13 +1,15 @@
 var mysql = require('mysql');
 const express = require('express')
 const app = express ();
+const dontenv = require('dotenv').config()
+
 
 var connection = mysql.createConnection ({
-    host     : 'process.env.DB_HOST',
-    port     : 'process.env.DB_PORTA', //SEM DEFINIR A PORTA DAVA O ERRO 'connect ETIMEDOUT'
-    USER     : 'process.env.robertdb',
-    password : 'process.env.DB_PASSWORD',
-    database : 'process.env.DB_DATABASE'
+    host     : process.env.DB_HOST,
+    port    : process.env.DB_PORTA, //SEM DEFINIR A PORTA DAVA O ERRO 'connect ETIMEDOUT'
+    user     : process.env.DB_USER,
+    password : process.env.DB_PASSWORD,
+    database : process.env.DB_DATABASE
 });
 
 connection.connect (function(err) 
