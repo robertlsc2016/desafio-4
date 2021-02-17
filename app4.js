@@ -3,11 +3,11 @@ const express = require('express')
 const app = express ();
 
 var connection = mysql.createConnection ({
-    host     : 'mysql742.umbler.com',
-    port     : '41890', //SEM DEFINIR A PORTA DAVA O ERRO 'connect ETIMEDOUT'
-    user     : 'robertdb',
-    password : 'QWERT3751956842qwert?',
-    database : 'robertdb'
+    host     : 'process.env.DB_HOST',
+    port     : 'process.env.DB_PORTA', //SEM DEFINIR A PORTA DAVA O ERRO 'connect ETIMEDOUT'
+    USER     : 'process.env.robertdb',
+    password : 'process.env.DB_PASSWORD',
+    database : 'process.env.DB_DATABASE'
 });
 
 connection.connect (function(err) 
